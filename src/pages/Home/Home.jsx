@@ -1,9 +1,16 @@
+import { useLoaderData } from "react-router-dom";
+import Banner from "./Banner";
+import Category from "./Category";
+import Hiring from "../../components/Hiring/Hiring";
 
 
 const Home = () => {
+    const loadedJobs = useLoaderData();
     return (
         <div>
-            <h1>Home</h1>
+            <Banner></Banner>
+            <Category loadedJobs={loadedJobs}></Category>
+            <Hiring></Hiring>
         </div>
     );
 };
