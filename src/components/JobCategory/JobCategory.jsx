@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
@@ -41,9 +41,10 @@ description}</p>
                 </div>
           
                 <div className="px-4 py-2">
+                  <Link to={`/details/${item._id}`}>
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Bid Now
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             ))}
@@ -69,9 +70,11 @@ description}</p>
                 </div>
           
                 <div className="px-4 py-2">
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                 <Link to={`/details/${item._id}`}>
+                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Bid Now
                   </button>
+                 </Link>
                 </div>
               </div>
             ))}
@@ -97,9 +100,11 @@ description}</p>
                 </div>
           
                 <div className="px-4 py-2">
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                 <Link to={`/details/${item._id}`}>
+                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Bid Now
                   </button>
+                 </Link>
                 </div>
               </div>
             ))}

@@ -1,99 +1,121 @@
-import { useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
+const UpdateJobPost = () => {
+  const updateJobPost = useLoaderData();
+  const {
+    _id,
+    employerEmail,
+    jobTitle,
+    deadline,
+    description,
 
+    minPrice,
+    maxPrice,
+  } = updateJobPost || {};
 
-const AddJob = () => {
-  const navigate = useNavigate();
+  const handleUpdateJob = event => {
+    event.preventDefault();
+    const form = event.target;
+    const employerEmail  = form.employerEmail.value;
+    const jobTitle       = form.jobTitle.value;
+    const deadline       = form.deadline.value;
+    const description    = form.description.value;
+    const category       = form.category.value;
+    const minPrice       = form.minPrice.value;
+    const maxPrice       = form.maxPrice.value;
 
-    const handleAddJob = event => {
-        event.preventDefault();
-        const form = event.target;
-        const employerEmail  = form.employerEmail.value;
-        const jobTitle       = form.jobTitle.value;
-        const deadline       = form.deadline.value;
-        const description    = form.description.value;
-        const category       = form.category.value;
-        const minPrice       = form.minPrice.value;
-        const maxPrice       = form.maxPrice.value;
-        const newJob = {employerEmail ,jobTitle  , deadline , description , category  , minPrice , maxPrice }
-        console.log(newJob);
+    const updatedJob = {employerEmail , jobTitle  , deadline,  category ,description , minPrice  , maxPrice }
+        console.log(updatedJob);
         form.reset();
 
+
         // send data to the server
-        fetch('http://localhost:5000/job' , {
-            method: 'POST' ,
+
+        fetch(`http://localhost:5000/jobs//${_id}` , {
+            method:'PUT' ,
             headers: {
-                'content-type': 'application/json'
+                'content-type' : 'application/json'
             },
-            body: JSON.stringify(newJob)
+            body: JSON.stringify(updatedJob)
         })
         .then(res => res.json())
-        .then(data => {
+        .then(data =>{
             console.log(data)
-            if(data.insertedId){
+            if(data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Do you want to continue',
+                    text: 'Product Updated Successfully',
                     icon: 'success',
                     confirmButtonText: 'Ok'
                   })
-                  navigate('/mypostedjobs');
 
             }
-        })
-    }
-  
-    
-      return (
-        <div className="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+
+  })
+  }
+
+
+
+
+
+  return (
+    <div>
+      <h2>Update Job : </h2>
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded shadow-lg w-96 my-5">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Add a Job</h2>
-          <form onSubmit={ handleAddJob } className="space-y-4">
+          <form onSubmit={handleUpdateJob} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-600">Email of the Employer</label>
+              <label className="block text-sm font-medium text-gray-600">
+                Email of the Employer
+              </label>
               <input
                 type="text"
                 name="employerEmail"
-               
+                defaultValue={employerEmail}
                 className="w-full border rounded py-2 px-3"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-600">Job Title</label>
+              <label className="block text-sm font-medium text-gray-600">
+                Job Title
+              </label>
               <input
                 type="text"
                 name="jobTitle"
-                
                 className="w-full border rounded py-2 px-3"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-600">Deadline</label>
+              <label className="block text-sm font-medium text-gray-600">
+                Deadline
+              </label>
               <input
                 type="date"
                 name="deadline"
-                
                 className="w-full border rounded py-2 px-3"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-600">Description</label>
+              <label className="block text-sm font-medium text-gray-600">
+                Description
+              </label>
               <textarea
                 name="description"
-                
                 className="w-full border rounded py-2 px-3"
                 rows="4"
                 required
               ></textarea>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-600">Category</label>
+              <label className="block text-sm font-medium text-gray-600">
+                Category
+              </label>
               <select
                 name="category"
-               
                 className="w-full border rounded py-2 px-3"
               >
                 <option value="web-development">Web Development</option>
@@ -103,21 +125,23 @@ const AddJob = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-600">Minimum Price</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Minimum Price
+                </label>
                 <input
                   type="number"
                   name="minPrice"
-                  
                   className="w-full border rounded py-2 px-3"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-600">Maximum Price</label>
+                <label className="block text-sm font-medium text-gray-600">
+                  Maximum Price
+                </label>
                 <input
                   type="number"
                   name="maxPrice"
-                 
                   className="w-full border rounded py-2 px-3"
                   required
                 />
@@ -134,7 +158,8 @@ const AddJob = () => {
           </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
-export default AddJob;
+export default UpdateJobPost;
