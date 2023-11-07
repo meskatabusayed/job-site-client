@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const JobDetails = () => {
   const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
+  
 
   const jobDetails = useLoaderData();
   const {
@@ -109,6 +113,7 @@ const JobDetails = () => {
             type="email"
             id="email"
             name="email"
+            defaultValue={user.email}
             placeholder="Enter Email"
             className="w-full p-2 border rounded-lg"
           />

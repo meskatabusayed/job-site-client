@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 
 const AddJob = () => {
+  const {user} = useContext(AuthContext);
   const navigate = useNavigate();
 
     const handleAddJob = event => {
@@ -55,7 +58,8 @@ const AddJob = () => {
               <input
                 type="text"
                 name="employerEmail"
-               
+                value={user.email}
+                readOnly
                 className="w-full border rounded py-2 px-3"
               />
             </div>

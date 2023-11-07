@@ -6,6 +6,7 @@ const UpdateJobPost = () => {
   const {
     _id,
     employerEmail,
+    category,
     jobTitle,
     deadline,
     description,
@@ -30,9 +31,9 @@ const UpdateJobPost = () => {
         form.reset();
 
 
-        // send data to the server
+        //send data to the server
 
-        fetch(`http://localhost:5000/jobs//${_id}` , {
+        fetch(`http://localhost:5000/jobs/${_id}` , {
             method:'PUT' ,
             headers: {
                 'content-type' : 'application/json'
@@ -53,6 +54,7 @@ const UpdateJobPost = () => {
             }
 
   })
+
   }
 
 
@@ -68,12 +70,13 @@ const UpdateJobPost = () => {
           <form onSubmit={handleUpdateJob} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-600">
-                Email of the Employer
+                Email 
               </label>
               <input
                 type="text"
                 name="employerEmail"
-                defaultValue={employerEmail}
+                value={employerEmail}
+                readOnly
                 className="w-full border rounded py-2 px-3"
               />
             </div>
@@ -84,6 +87,7 @@ const UpdateJobPost = () => {
               <input
                 type="text"
                 name="jobTitle"
+                defaultValue={jobTitle}
                 className="w-full border rounded py-2 px-3"
                 required
               />
@@ -95,6 +99,7 @@ const UpdateJobPost = () => {
               <input
                 type="date"
                 name="deadline"
+                defaultValue={deadline}
                 className="w-full border rounded py-2 px-3"
                 required
               />
@@ -105,6 +110,7 @@ const UpdateJobPost = () => {
               </label>
               <textarea
                 name="description"
+                defaultValue={description}
                 className="w-full border rounded py-2 px-3"
                 rows="4"
                 required
@@ -116,6 +122,7 @@ const UpdateJobPost = () => {
               </label>
               <select
                 name="category"
+                defaultValue={category}
                 className="w-full border rounded py-2 px-3"
               >
                 <option value="web-development">Web Development</option>
@@ -131,6 +138,7 @@ const UpdateJobPost = () => {
                 <input
                   type="number"
                   name="minPrice"
+                  defaultValue={minPrice}
                   className="w-full border rounded py-2 px-3"
                   required
                 />
@@ -142,6 +150,7 @@ const UpdateJobPost = () => {
                 <input
                   type="number"
                   name="maxPrice"
+                  defaultValue={maxPrice}
                   className="w-full border rounded py-2 px-3"
                   required
                 />
@@ -152,7 +161,7 @@ const UpdateJobPost = () => {
                 type="submit"
                 className="w-full bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-700"
               >
-                Add Job
+                Update Job
               </button>
             </div>
           </form>
