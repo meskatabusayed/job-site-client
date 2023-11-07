@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import BidRow from "./BidRow";
+import axios from "axios";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
@@ -11,9 +12,16 @@ const MyBids = () => {
 
   const url = `http://localhost:5000/bid?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBidData(data));
+
+    axios.get(url)
+    .then(res => {
+      setBidData(res.data)
+    })
+
+
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => setBidData(data));
   }, []);
 
   return (

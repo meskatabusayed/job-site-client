@@ -155,7 +155,7 @@ const Navbar = () => {
             <a onClick={handleLogOut} className="btn btn-primary ml-2">Sign Out</a>
             </>
             :
-            <Link to='/signin'>
+            <Link to='/login'>
                  <button  className="btn btn-primary ">Sign In</button>
             </Link>
         }

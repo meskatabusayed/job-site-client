@@ -55,36 +55,7 @@ const BidRequests = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {bidRequests.map((bidReq) => (
-
-              <tr key={bidReq._id}>
-                <th>.</th>
-                <th>{bidReq.jobTitle}</th>
-                <td>{bidReq.email}</td>
-                <td>{bidReq.deadline}</td>
-                <td>{bidReq.addValue ? bidReq.addValue : "Pending"}</td>
-                <td>
-                  <button
-                    onClick={() =>
-                      handleAccept({ id: bidReq._id, addValue: "accept" })
-                    }
-                    className="btn btn-warning"
-                  >
-                    Accept
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onClick={() =>
-                      handleAccept({ id: bidReq._id, addValue: "reject" })
-                    }
-                    className="btn btn-error"
-                  >
-                    Reject
-                  </button>
-                </td>
-              </tr>
-            ))} */}
+            
 
             {
                 bidRequests.map(bidReq => <NewRow

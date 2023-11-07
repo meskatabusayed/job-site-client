@@ -1,9 +1,25 @@
+import axios from "axios";
+import { useState } from "react";
 
 
 const BidRow = ({mybids}) => {
 
+  const [comValue , setComValue] = useState();
+
   const {_id , 
     values, email , deadline , jobTitle } = mybids;
+
+    const handleCompleted = completedValue => {
+      setComValue(completedValue);
+      const comInitValue = {comValue};
+      axios.patch(`http://localhost:5000/bid/${_id}` , comInitValue)
+      .then(data => {
+        console.log(data.data)
+      })
+    }
+
+    console.log(comValue);
+
 
   console.log(mybids);
     return (
@@ -21,7 +37,7 @@ const BidRow = ({mybids}) => {
         <td>
           
          
-          <button className={`btn btn-active btn-primary${values ? "" : "opacity-50 cursor-not-allowed"}`}>Complete</button>
+          <button onClick={() => handleCompleted("Completed")} className={`btn btn-active btn-primary${values ? "" : "opacity-50 btn-disabled cursor-not-allowed"}`}>Complete</button>
         
           </td>
         

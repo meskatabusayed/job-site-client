@@ -2,6 +2,7 @@ import {  useContext, useEffect, useState,  } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import CardPostJob from "./CardPostJob";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const MyPostedJobs = () => {
@@ -10,9 +11,16 @@ const MyPostedJobs = () => {
     const [postedJobs , setPostedJobs] = useState([]);
     const url = `http://localhost:5000/job?employerEmail=${user.email}`;
     useEffect(() => {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setPostedJobs(data))
+
+        axios.get(url , {withCredentials: true})
+        .then(res => {
+            setPostedJobs(res.data)
+        })
+
+
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => setPostedJobs(data))
     } , [])
 
 

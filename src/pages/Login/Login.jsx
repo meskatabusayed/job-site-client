@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import swal from "sweetalert";
+import axios from "axios";
 
 
 
 const Login = () => {
     const {signInUser , signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
     const navigate = useNavigate();
+    
+    console.log(location);
 
     const [loginError, setLoginError] = useState(" ");
     const [success , setSuccess] = useState('');
@@ -22,10 +26,20 @@ const Login = () => {
 
         signInUser(email , password)
         .then(result => {
-            console.log(result.user)
+            const loggedInUser = result.user;
+            console.log(loggedInUser)
             e.target.reset();
             setSuccess(swal("Good job!", "Login Successfully!", "success"));
-            navigate('/');
+            
+            const user = { email};
+            axios.post('http://localhost:5000/jwt' , user , {withCredentials:true})
+            .then(res => {
+              console.log(res.data)
+              if(res.data.success){
+                navigate(location?.state ? location?.state : '/');
+              }
+            })
+
         })
         .catch(error => {
             console.log(error)
@@ -41,9 +55,12 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         signInWithGoogle()
         .then(result => {
-          console.log(result.user)
+          const loggedInUser = result.user;
+          console.log(loggedInUser)
           setSuccess(swal("Good job!", "Login Successfully!", "success"));
-          navigate('/');
+          navigate(location?.state ? location?.state : '/');
+          
+         
         })
         .catch(error => {
           console.log(error)

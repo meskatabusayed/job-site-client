@@ -32,7 +32,7 @@ const NewRow = ({bidReq}) => {
                 
                 <td>
                     {
-                        bidReq.values ? <progress className="progress progress-secondary w-56" value="100" max="100"></progress> :  <button
+                        bidReq.values ? <progress className="progress progress-secondary w-56" value={bidReq.comValue ? 100 : 80} max="100"></progress> :  <button
                         onClick={() =>
                           handleAccept('accept')
                         }
