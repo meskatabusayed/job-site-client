@@ -26,12 +26,9 @@ const MyPostedJobs = () => {
 
 
     const handleDelete = id => {
-        const proceed = Swal.fire({
-            title: 'Warning',
-            text: 'Do you want to Delete',
-            icon: 'warning',
-            confirmButtonText: 'Yes'
-          })
+        const proceed = confirm('Do You Want to Delete');
+        
+        
         if(proceed){
             fetch(`http://localhost:5000/job/${id}` , {
                 method: 'DELETE'
@@ -39,17 +36,14 @@ const MyPostedJobs = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if(data.deletedCount > 0){
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Do you want to continue',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                      })
-                    const remaining = postedJobs.filter(postedJob => postedJob._id !== id);
-                    setPostedJobs(remaining)
+                const remaining = postedJobs.filter(postedJob => postedJob._id !== id);
+                setPostedJobs(remaining)
+
+                // if(data.deletedCount > 0){
+                //    const remaining = postedJobs.filter(postedJob => postedJob._id !== id);
+                //     setPostedJobs(remaining)
                     
-                }
+                // }
 
             })
         }
