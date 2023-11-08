@@ -98,7 +98,7 @@ const Navbar = () => {
               }
             >
               
-            Login
+            Login Now
             </NavLink>
             
           </li>
