@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
         <div className="w-full md:w-1/4 p-4">
           <p>Contact: contact@jobify.com</p>
-          <p>Phone: +8801833651853</p>
+          <p>Call: +8801833651853</p>
         </div>
         <div className="w-full md:w-1/4 p-4">
           <p>Address: Bheramara , Kushtia</p>
