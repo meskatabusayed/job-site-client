@@ -10,7 +10,7 @@ const MyPostedJobs = () => {
 
     const {user} = useContext(AuthContext);
     const [postedJobs , setPostedJobs] = useState([]);
-    const url = `http://localhost:5000/job?employerEmail=${user.email}`;
+    const url = `https://meskat-11-assignment-ph-server.vercel.app/job?employerEmail=${user.email}`;
     useEffect(() => {
 
         axios.get(url)
@@ -31,7 +31,7 @@ const MyPostedJobs = () => {
         
         
         if(proceed){
-            fetch(`http://localhost:5000/job/${id}` , {
+            fetch(`https://meskat-11-assignment-ph-server.vercel.app/job/${id}` , {
                 method: 'DELETE'
             })
             .then(res => res.json())

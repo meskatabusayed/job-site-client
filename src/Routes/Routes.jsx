@@ -22,24 +22,24 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/job')
+            loader: () => fetch('https://meskat-11-assignment-ph-server.vercel.app/job')
             
         },
         {
           path: '/jobcategory/:category',
           element: <JobCategory></JobCategory>,
-          loader: ({params}) => fetch(`http://localhost:5000/job/${params.category}`)
+          loader: ({params}) => fetch(`https://meskat-11-assignment-ph-server.vercel.app/job/${params.category}`)
 
         },
         {
           path: '/details/:id',
           element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+          loader: ({params}) => fetch(`https://meskat-11-assignment-ph-server.vercel.app/jobs/${params.id}`)
         },
         {
           path: '/update/:id',
           element: <UpdateJobPost></UpdateJobPost>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+          loader: ({params}) => fetch(`https://meskat-11-assignment-ph-server.vercel.app/jobs/${params.id}`)
         },
         {
           path: '/addjob',

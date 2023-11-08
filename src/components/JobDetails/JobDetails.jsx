@@ -42,7 +42,7 @@ const JobDetails = () => {
    
 
     // send data to the server
-    fetch("http://localhost:5000/bid", {
+    fetch("https://meskat-11-assignment-ph-server.vercel.app/bid", {
       method: "POST",
       headers: {
         "content-type": "application/json",

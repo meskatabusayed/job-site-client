@@ -13,7 +13,7 @@ const NewRow = ({bidReq}) => {
         setValues(adding);
         
         const resultValue = { values };
-        axios.patch(`http://localhost:5000/bid/${bidReq._id}` , resultValue)
+        axios.patch(`https://meskat-11-assignment-ph-server.vercel.app/bid/${bidReq._id}` , resultValue)
           .then((data) => {
             console.log(data.data);
             

@@ -11,7 +11,7 @@ const MyBids = () => {
 //   const { email
 //     , deadline} = bidData || {}
 
-  const url = `http://localhost:5000/bid?email=${user?.email}`;
+  const url = `https://meskat-11-assignment-ph-server.vercel.app/bid?email=${user?.email}`;
   useEffect(() => {
 
     axios.get(url)

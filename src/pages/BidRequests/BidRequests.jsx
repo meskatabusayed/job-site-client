@@ -11,7 +11,7 @@ const BidRequests = () => {
   
   
 
-  const url = `http://localhost:5000/bid?buyerEmail=${user?.email}`;
+  const url = `https://meskat-11-assignment-ph-server.vercel.app/bid?buyerEmail=${user?.email}`;
   //   useEffect(() => {
   //     fetch(url)
   //       .then((res) => res.json())

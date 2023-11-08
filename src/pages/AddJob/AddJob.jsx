@@ -25,7 +25,7 @@ const AddJob = () => {
         form.reset();
 
         // send data to the server
-        fetch('http://localhost:5000/job' , {
+        fetch('https://meskat-11-assignment-ph-server.vercel.app/job' , {
             method: 'POST' ,
             headers: {
                 'content-type': 'application/json'

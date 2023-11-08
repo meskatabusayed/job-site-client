@@ -12,7 +12,7 @@ const BidRow = ({mybids}) => {
     const handleCompleted = completedValue => {
       setComValue(completedValue);
       const comInitValue = {comValue};
-      axios.patch(`http://localhost:5000/bid/${_id}` , comInitValue)
+      axios.patch(`https://meskat-11-assignment-ph-server.vercel.app/bid/${_id}` , comInitValue)
       .then(data => {
         console.log(data.data);
 
