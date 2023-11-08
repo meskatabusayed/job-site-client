@@ -108,7 +108,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-blue-300">
+    <div className="navbar bg-slate-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -146,7 +146,7 @@ const Navbar = () => {
       <div className="navbar-end">
       {
             user ? <>
-            <div className="avatar mr-2">
+            <div className="avatar  mr-2">
               <div className="w-24 rounded">
                 <img src={user.photoURL} />
               </div>

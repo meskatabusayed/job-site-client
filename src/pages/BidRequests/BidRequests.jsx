@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import NewRow from "./NewRow";
+import { Helmet } from "react-helmet-async";
 
 const BidRequests = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +36,9 @@ const BidRequests = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Jobify | BidRequests</title>
+      </Helmet>
       <h2 className="text-center text-3xl font-extrabold text-lime-600 py-10">
         My Bids: {bidRequests.length}
       </h2>

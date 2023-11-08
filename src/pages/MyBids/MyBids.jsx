@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import BidRow from "./BidRow";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const MyBids = () => {
   const { user } = useContext(AuthContext);
@@ -26,6 +27,9 @@ const MyBids = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Jobify | MyBids</title>
+      </Helmet>
       <h2 className="text-center text-3xl font-extrabold text-lime-600 py-10">
         My Bids: {bidData.length}
       </h2>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -50,6 +51,9 @@ const AddJob = () => {
     
       return (
         <div className="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+          <Helmet>
+            <title>Jobify | AddJob</title>
+          </Helmet>
         <div className="bg-white p-8 rounded shadow-lg w-96 my-5">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Add a Job</h2>
           <form onSubmit={ handleAddJob } className="space-y-4">

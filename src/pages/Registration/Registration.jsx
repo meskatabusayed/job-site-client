@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 
 const Registration = () => {
@@ -58,6 +59,9 @@ const Registration = () => {
 
     return (
         <div className="">
+          <Helmet>
+            <title>Jobify | Registration</title>
+          </Helmet>
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-500 to-indigo-700">
         <div className="bg-white p-8 my-5 rounded shadow-md w-full max-w-md">
           <h2 className="text-3xl font-extrabold text-center text-indigo-800 mb-6">Registration</h2>
