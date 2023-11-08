@@ -35,7 +35,7 @@ const JobCategory = () => {
                   <p className="text-gray-600 text-sm">Date: {item.deadline}</p>
                 </div>
                 <div className="px-4 py-2">
-                  <p className="text-gray-700">Price Range : {item.minPrice} - {item.maxPrice}</p>
+                  <p className="text-gray-700">Price Range :$ {item.minPrice} - {item.maxPrice}</p>
                 </div>
           
                 <div className="px-4 py-2">
