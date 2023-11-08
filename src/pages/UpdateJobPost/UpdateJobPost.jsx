@@ -67,7 +67,7 @@ const UpdateJobPost = () => {
 
   return (
     <div>
-      <h2 className="text-3xl font-extrabold text-center py-5">Update Job : </h2>
+      <h2 className="text-3xl font-extrabold text-center py-5">Updating Job Now : </h2>
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded shadow-lg w-96 my-5">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Update a Job</h2>
