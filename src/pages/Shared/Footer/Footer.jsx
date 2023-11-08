@@ -12,7 +12,7 @@ const Footer = () => {
           <p>&copy; 2023 Jobify</p>
         </div>
         <div className="w-full md:w-1/4 p-4">
-          <p>Contact: contact@jobify.com</p>
+          <p>Contact: contact@jobifygroup.com</p>
           <p>Call: +8801833651853</p>
         </div>
         <div className="w-full md:w-1/4 p-4">
