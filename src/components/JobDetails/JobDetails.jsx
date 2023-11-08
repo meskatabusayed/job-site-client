@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
   const navigate = useNavigate();
@@ -67,7 +68,10 @@ const JobDetails = () => {
   return (
     <div>
       {/* job details card start */}
-
+      
+      <Helmet>
+        <title>Jobify | JobDetails</title>
+      </Helmet>
       <div className="flex items-center justify-center py-10">
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body py-5">

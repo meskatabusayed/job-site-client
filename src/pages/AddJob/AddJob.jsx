@@ -55,7 +55,7 @@ const AddJob = () => {
             <title>Jobify | AddJob</title>
           </Helmet>
         <div className="bg-white p-8 rounded shadow-lg w-96 my-5">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Add a Job</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Add a Job post</h2>
           <form onSubmit={ handleAddJob } className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-600">Email of the Employer</label>

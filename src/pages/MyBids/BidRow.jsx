@@ -14,11 +14,13 @@ const BidRow = ({mybids}) => {
       const comInitValue = {comValue};
       axios.patch(`http://localhost:5000/bid/${_id}` , comInitValue)
       .then(data => {
-        console.log(data.data)
+        console.log(data.data);
+
       })
     }
 
     console.log(comValue);
+    
 
 
   console.log(mybids);

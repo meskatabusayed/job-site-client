@@ -1,7 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData  , useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateJobPost = () => {
+
+  const navigate = useNavigate()
+
   const updateJobPost = useLoaderData();
   const {
     _id,
@@ -50,6 +53,7 @@ const UpdateJobPost = () => {
                     icon: 'success',
                     confirmButtonText: 'Ok'
                   })
+                  navigate('/mypostedjobs');
 
             }
 
